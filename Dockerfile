@@ -7,4 +7,6 @@ RUN tar xfz /tmp/eclipse.tgz -C /opt
 #RUN wget -O /tmp/deltapack.zip "http://www.eclipse.org/downloads/download.php?file=/eclipse/downloads/drops/R-3.7.2-201202080800/eclipse-3.7.2-delta-pack.zip"
 RUN wget -O /tmp/deltapack.zip "http://archive.eclipse.org/eclipse/downloads/drops/R-3.7.2-201202080800/eclipse-3.7.2-delta-pack.zip"
 RUN mkdir -p /opt/eclipse/deltapack ; unzip -d /opt/eclipse/deltapack /tmp/deltapack.zip
+RUN wget -O /tmp/nsis.rpm ftp://ftp.scientificlinux.org/linux/scientific/6.1/x86_64/os/Packages/mingw32-nsis-2.46-2.el6.x86_64.rpm
+RUN rpm -i /tmp/nsis.rpm
 RUN rm -f /tmp/*.tgz ; rm -f /tmp/*.zip
