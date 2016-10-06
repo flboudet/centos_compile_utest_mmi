@@ -9,4 +9,6 @@ RUN wget -O /tmp/deltapack.zip "http://archive.eclipse.org/eclipse/downloads/dro
 RUN mkdir -p /opt/eclipse/deltapack ; unzip -d /opt/eclipse/deltapack /tmp/deltapack.zip
 RUN wget -O /tmp/nsis.rpm ftp://ftp.scientificlinux.org/linux/scientific/6.1/x86_64/os/Packages/mingw32-nsis-2.46-2.el6.x86_64.rpm
 RUN rpm -i /tmp/nsis.rpm
-RUN rm -f /tmp/*.tgz ; rm -f /tmp/*.zip
+COPY files /files
+RUN cp /files/*.dll /usr/share/nsis/Plugins ; cp /files/*.nsh /usr/share/nsis/Include
+RUN rm -f /tmp/*.tgz ; rm -f /tmp/*.zip ; rm -rf /files
